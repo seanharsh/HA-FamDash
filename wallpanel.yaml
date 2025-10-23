@@ -1,0 +1,647 @@
+wallpanel:
+  enabled: false
+  debug: false
+  hide_toolbar: true
+  hide_sidebar: true
+  fullscreen: false
+  idle_time: 90
+  keep_screen_on_time: 864000000000
+  black_screen_after_time: 0
+  control_reactivation_time: 1
+  display_time: 7
+  image_url: media-source://media_source/local/wallpanel/portraits
+  image_fit_landscape: cover
+  image_fit_portrait: cover
+  image_background: image
+  image_list_update_interval: 3600
+  image_order: random
+  image_excludes: []
+  show_image_info: true
+  fetch_address_data: true
+  image_info_template: >-
+    ${address.town|address.city|address.municipality!prefix=!suffix=,
+    }${address.state}<br />${DateTimeOriginal!options=year:numeric,month:long}
+  image_animation_ken_burns: true
+  screensaver_entity: input_boolean.wallpanel_screensaver
+  info_move_pattern: corners
+  info_move_interval: 0
+  info_move_fade_duration: 2
+  card_interaction: true
+  style:
+    wallpanel-screensaver-info-box:
+      position: absolute
+      bottom: 0.75em
+      left: 0em
+      '--wp-card-width': 450px
+    wallpanel-screensaver-info-box-content:
+      '--ha-card-background': none
+      '--ha-card-box-shadow': none
+      '--ha-card-border-width': 0px
+      '--primary-text-color': '#ffffff'
+      '--secondary-text-color': '#dddddd'
+      filter: >-
+        drop-shadow(0px 0px 3px rgb(17, 17, 17)) drop-shadow(0px 0px 8px rgb(30,
+        30, 30))
+    wallpanel-screensaver-image-info:
+      position: absolute
+      background: none
+      bottom: 1.5em
+      right: 1.5em
+      font-size: 2em
+      '-webkit-text-stroke': '0.02em #000'
+      color: '#ffffff'
+      font-weight: '900'
+      filter: >-
+        drop-shadow(0px 0px 3px rgb(17, 17, 17)) drop-shadow(0px 0px 4px rgb(30,
+        30, 30))
+  cards:
+    - type: custom:simple-clock-card
+      use_military: false
+      hide_seconds: true
+      bold_clock: true
+      font_size: 6em
+views:
+  - title: Home
+    cards:
+      - type: custom:stack-in-card
+        mode: horizontal
+        margin: true
+        card_mod:
+          style: |
+            ha-card {
+              border: 0px;
+              margin-top: -5px !important;
+              margin-left: -5px !important;
+              margin-right: *5px !important;
+              height: 5em;
+            }
+        cards:
+          - type: custom:simple-clock-card
+            use_military: false
+            hide_seconds: true
+            bold_clock: true
+            font_size: 3em
+            card_mod:
+              style: |
+                div {
+                  padding: 1% 0px !important;
+                }
+      - type: custom:mod-card
+        style:
+          hui-horizontal-stack-card$: |
+            #root {
+              padding: 10px 75px 0 75px;
+            }
+        card:
+          type: horizontal-stack
+          cards:
+            - type: custom:mushroom-person-card
+              entity: person.person1
+              layout: vertical
+              icon_type: entity-picture
+              card_mod:
+                style:
+                  mushroom-shape-avatar$: |
+                    .picture {
+                      rotate: 319deg !important;
+                      border: 5px solid #b82d3d;
+                    }
+                  .: |
+                    ha-card {
+                        background-color: unset;
+                        padding: 5px !important;
+                        --icon-size: 8em;
+                        --icon-border-radius: 4.5em;
+                        --card-primary-font-size: 1.5em;                  
+                        --card-primary-color: #b82d3d;
+                        --card-secondary-font-size: 0px;
+                      }
+                      mushroom-badge-icon {
+                        --badge-icon-size: 20px;
+                        --badge-size: 30px;
+                      }
+            - type: custom:mushroom-person-card
+              entity: person.person2
+              layout: vertical
+              icon_type: entity-picture
+              card_mod:
+                style:
+                  mushroom-shape-avatar$: |
+                    .picture {
+                      border: 5px solid #1badf8;
+                    }
+                  .: |
+                    ha-card {
+                        background-color: unset;
+                        padding: 5px !important;
+                        --icon-size: 8em;
+                        --icon-border-radius: 4.5em;
+                        --card-primary-font-size: 1.5em;                  
+                        --card-primary-color: #1badf8;
+                        --card-secondary-font-size: 0px;
+                      }
+                      mushroom-badge-icon {
+                        --badge-icon-size: 20px;
+                        --badge-size: 30px;
+                      }
+            - type: custom:mushroom-person-card
+              entity: person.person3
+              layout: vertical
+              icon_type: entity-picture
+              card_mod:
+                style:
+                  mushroom-shape-avatar$: |
+                    .picture {
+                      border: 5px solid #c57492;
+                    }
+                  .: |
+                    ha-card {
+                        background-color: unset;
+                        padding: 5px !important;
+                        --icon-size: 8em;
+                        --icon-border-radius: 4.5em;
+                        --card-primary-font-size: 1.5em;                  
+                        --card-primary-color: #c57492;
+                        --card-secondary-font-size: 0px;
+                      }
+                      mushroom-badge-icon {
+                        --badge-icon-size: 20px;
+                        --badge-size: 30px;
+                      }
+            - type: custom:mushroom-person-card
+              entity: person.person4
+              layout: vertical
+              icon_type: entity-picture
+              card_mod:
+                style:
+                  mushroom-shape-avatar$: |
+                    .picture {
+                      border: 5px solid #d55c00;
+                    }
+                  .: |
+                    ha-card {
+                        background-color: unset;
+                        padding: 5px !important;
+                        --icon-size: 8em;
+                        --icon-border-radius: 4.5em;
+                        --card-primary-font-size: 1.5em;                  
+                        --card-primary-color: #d55c00;
+                        --card-secondary-font-size: 0px;
+                      }
+                      mushroom-badge-icon {
+                        --badge-icon-size: 20px;
+                        --badge-size: 30px;
+                      }
+      - type: custom:tabbed-card
+        options: {}
+        tabs:
+          - card:
+              type: vertical-stack
+              cards:
+                - type: custom:mod-card
+                  style:
+                    hui-horizontal-stack-card$: |
+                      #root {
+                        padding: 10px 28px 0 13px;
+                      }
+                  card:
+                    type: horizontal-stack
+                    cards:
+                      - type: custom:mushroom-title-card
+                        title: Sunday
+                        alignment: center
+                        title_tap_action:
+                          action: none
+                        subtitle_tap_action:
+                          action: none
+                        card_mod:
+                          style: |
+                            ha-card {
+                              --title-font-size: 20px !important;
+                              padding: 0px !important;
+                            }
+                      - type: custom:mushroom-title-card
+                        title: Monday
+                        alignment: center
+                        title_tap_action:
+                          action: none
+                        subtitle_tap_action:
+                          action: none
+                        card_mod:
+                          style: |
+                            ha-card {
+                              --title-font-size: 20px !important;
+                              padding: 0px !important;
+                            }
+                      - type: custom:mushroom-title-card
+                        title: Tuesday
+                        alignment: center
+                        title_tap_action:
+                          action: none
+                        subtitle_tap_action:
+                          action: none
+                        card_mod:
+                          style: |
+                            ha-card {
+                              --title-font-size: 20px !important;
+                              padding: 0px !important;
+                            }
+                      - type: custom:mushroom-title-card
+                        title: Wednesday
+                        alignment: center
+                        title_tap_action:
+                          action: none
+                        subtitle_tap_action:
+                          action: none
+                        card_mod:
+                          style: |
+                            ha-card {
+                              --title-font-size: 20px !important;
+                              padding: 0px !important;
+                            }
+                      - type: custom:mushroom-title-card
+                        title: Thursday
+                        alignment: center
+                        title_tap_action:
+                          action: none
+                        subtitle_tap_action:
+                          action: none
+                        card_mod:
+                          style: |
+                            ha-card {
+                              --title-font-size: 20px !important;
+                              padding: 0px !important;
+                            }
+                      - type: custom:mushroom-title-card
+                        title: Friday
+                        alignment: center
+                        title_tap_action:
+                          action: none
+                        subtitle_tap_action:
+                          action: none
+                        card_mod:
+                          style: |
+                            ha-card {
+                              --title-font-size: 20px !important;
+                              padding: 0px !important;
+                            }
+                      - type: custom:mushroom-title-card
+                        title: Saturday
+                        alignment: center
+                        title_tap_action:
+                          action: none
+                        subtitle_tap_action:
+                          action: none
+                        card_mod:
+                          style: |
+                            ha-card {
+                              --title-font-size: 20px !important;
+                              padding: 0px !important;
+                            }
+                    card_mod:
+                      style: |
+                        element.style {
+                          padding-right: 31px;
+                          padding-left: 16px;
+                        }
+                - type: custom:week-planner-card
+                  startingDay: sunday
+                  calendars:
+                    - entity: calendar.family
+                      color: '#8E24AA'
+                    - entity: calendar.holidays_in_united_states
+                      color: '#0B8043'
+                    - entity: calendar.favorite_football_team
+                      color: '#a3a3a3'
+                    - entity: calendar.favorite_hockey_team
+                      color: '#ffcc00'
+                    - entity: calendar.person2
+                      color: '#1badf8'
+                    - entity: calendar.person1
+                      color: '#b82d3d'
+                    - entity: calendar.person3
+                      color: '#c57492'
+                  dayFormat: >-
+                    '<span class="number">'d'</span> <span
+                    class="month">'MMMM'</span>'
+                  days: 91
+                  timeFormat: h:mm a
+                  noCardBackground: true
+                  eventBackground: var(--card-background-color, inherit)
+                  compact: false
+                  locationLink: https://www.google.com/maps/search/?api=1&query=
+                  locale: en
+                  card_mod:
+                    style: |
+                      ha-card {
+                        --event-padding: 5px !important;
+                        --days-spacing: 15px !important;
+                        height: 98em;
+                        overflow-y: scroll;
+                      }
+                      .container .day {
+                        width: calc((100% - 6* var(--days-spacing)) / 7) !important;
+                        margin: unset !important;
+                      }
+                      .event.past {
+                        opacity: .3;
+                      }
+                      .day.past {
+                        opacity: .3 !important;
+                      }
+                      div.day.today {
+                        background: var(--ha-card-background, var(--card-background-color, #fff));
+                      }
+                      .event {
+                        border-radius: 3px !important;
+                        padding: 5px;
+                        background-color: var(--border-color) !important;
+                      }
+                      .number {
+                        font-weight: 500 !important;
+                        font-size: 29px !important;
+                      }
+                      .text {
+                        font-weight: 400 !important;
+                        font-size: 19x !important;
+                      }          
+                      .time {
+                        color: white !important;
+                        font-weight: 500 !important;
+                        font-size: 0.85em !important;
+                      }
+                      .title {
+                        color: white;
+                        font-weight: 800 !important;
+                      }
+            attributes:
+              label: Weekly
+          - card:
+              type: custom:atomic-calendar-revive
+              enableModeChange: false
+              entities:
+                - entity: calendar.family
+                  name: Family
+                  color: '#8E24AA'
+                - entity: calendar.person2
+                  name: Person2
+                  color: '#1badf8'
+                - entity: calendar.person1
+                  name: Person1
+                  color: '#b82d3d'
+                - entity: calendar.person3
+                  name: Person3
+                  color: '#c57492'
+                - entity: calendar.holidays_in_united_states
+                  name: Holidays in united states
+                  color: '#0B8043'
+                - entity: calendar.favorite_hockey_team
+                  name: Pittsburgh penguins
+                  color: '#ffcc00'
+                - entity: calendar.favorite_football_team
+                  name: Ohio state buckeyes football
+                  color: '#a3a3a3'
+              defaultMode: Calendar
+              showDate: false
+              showLoader: false
+              cardHeight: 90%;
+              linkTarget: _parent
+              sortBy: start
+              eventTitle: Event
+              titleLength: 45
+              firstDayOfWeek: 0
+              showLastCalendarWeek: false
+              disableCalEventLink: false
+              calShowDescription: true
+              disableCalLocationLink: false
+              calEventTime: true
+              disableCalLink: true
+              card_mod:
+                style: >
+                  ha-card {
+                    height: 98em !important;
+                  } .cal-card {
+                    background-color: unset !important;
+                  }  .header {
+                    justify-content: center !important;
+                  }
+
+                  .header-date {
+                    font-size: 3em !important;
+                    font-weight: 600 !important;
+                    text-align: center;
+                  }
+
+                  div.calIconSelector ha-icon-button, div.calDateSelector
+                  ha-icon-button {
+                      color: var(--primary-text-color) !important;
+                  }
+
+                  div.calDateSelector .prev {
+                      border: 1px solid var(--primary-text-color) !important;
+                      border-radius: 20px !important;
+                  }
+
+
+                  .calTitleContainer {
+                      display: grid;
+                      height: 28px;
+                      padding: 0px 0px 25px 0px !important;
+                      justify-content: center !important;
+                      position: relative;
+                  }
+
+                  .calTableContainer { }
+                    
+
+                  .calDateSelector {
+                    justify-content: center;
+                  }
+
+                  div.calDateSelector .date {
+                      border: 0 !important;
+                      padding: 4px 2px 2px 4px;
+                      font-size: 3em !important;
+                      font-weight: 600 !important;
+                      width: 650px;
+                  }
+
+                  div.calDateSelector .next {
+                      border: 1px solid var(--primary-text-color) !important;
+                      border-radius: 20px !important;
+                  }
+
+                  thead th.cal {
+                    color: unset !important;
+                    font-size: 2em !important;
+                    font-weight: 600 !important;
+                    text-transform: unset !important;
+                    padding-bottom: 5px;
+                  }
+
+                  td.cal {
+                    padding: 0px 0px 0px 0px !important;
+                    vertical-align: top !important;
+                    border-left: 1px !important;
+                    border-right: 1px !important;
+                  }
+
+                  .calDay {
+                    height: unset !important;
+                    font-size: 2.75em !important;
+                    font-weight: 600;
+                    max-width: unset !important;
+                    padding-top: 30px;
+                  }
+
+                  .calDay > div {
+                    font-color: white !important;
+                    height: 50px;
+                    margin-bottom: 0px;
+                    align-content: center;
+                  }
+
+                  .calIcon {
+                    --mdc-icon-size: 30px !important;
+                    margin-right: -11px !important;
+                    margin-left: -11px !important;
+                  }
+
+                  .currentDay {
+                    width: 55px !important;
+                    height: 55px !important;
+                  }
+
+                  .summary-event-div {
+                    font-size: 0px;
+                    height: 127px;
+                    padding-top: 15px !important;
+                    padding-bottom: 15px !important;
+                    border-bottom-width: 1px !important;
+                    border-bottom-style: solid !important;
+                    border-bottom-color: var(--chip-background-color) !important;
+                  }
+
+                  .summary-event-div < div {
+                    font-size: 90% !important;
+                  }
+
+                  .summary-div {          
+                    font-size: 12px !important;
+                    padding: 25px !important;
+                    height: 100% !important;
+                    position: relative;
+                    overflow-y: scroll !important;
+                  }
+
+                  .bullet-event-div-accepted {                      
+                    border-radius: 15px;
+                    border: 8px solid !important;
+                    height: 110px !important;
+                  }
+
+                  .hours {
+                    font-size: 32px !important;
+                    color: var(--primary-text-color) !important;
+                    position: relative;
+                    text-align: right;
+                    left: 700px;
+                    display: inline-grid;
+                    justify-content: right;
+                  }
+
+                  .event-title.Calendar {
+                    font-size: 32px !important;
+                    color: var(--primary-text-color) !important;
+                    position: relative;
+                    top: -30px;
+                    left: -220px;            
+                  }
+
+                  .event-location-icon {
+                    --mdc-icon-size: 40px !important;
+                    position: relative;
+                    top: -44px;
+                    left: -210px;                
+                  }
+
+                  .calDescription {
+                    font-size: 15px !important;
+                    opacity: 50% !important;
+                    height: 58px;
+                    width: 60%;
+                    overflow: clip;
+                    position: relative;
+                    top: -75px;
+                    left: 38px;                
+                  }
+
+                  .summary-fullday-div-accepted::after {
+                    content: "all-day";
+                    position: relative;
+                    top: -12px;
+                    left: 875px;
+                    font-size: 2.5em;
+                    font-weight: 400;
+                  }
+
+                  .summary-fullday-div-accepted {
+                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3E%3Ctitle%3Ecalendar-today%3C/title%3E%3Cpath d='M7,10H12V15H7M19,19H5V8H19M19,3H18V1H16V3H8V1H6V3H5C3.89,3 3,3.9 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5A2,2 0 0,0 19,3Z' /%3E%3C/svg%3E");
+                    background-repeat: no-repeat;
+                    -webkit-border-radius: unset !important;
+                    #border-radius: unset !important;
+                    #border: 0 !important;
+                    border-top: 0 !important;
+                    border-right: 0 !important;
+                    border-bottom-width: 1px !important;
+                    border-bottom-style: solid !important;
+                    border-bottom-color: var(--chip-background-color) !important;
+                    border-left-width: 20px !important;
+                    height: 50px;
+                    margin: 10px -5px !important;
+                  }
+
+                  .summary-fullday-div-accepted .event-title {
+                    top: 10px;
+                    left: 40px;
+                  }
+            attributes:
+              label: Monthly
+      - type: horizontal-stack
+        style: |
+          ha-card {
+            border-top: 1px;
+          }
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: light.family_room_lights
+            icon_height: 27px
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: light.family_room_lights
+            icon_height: 27px
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: light.family_room_lights
+            icon_height: 27px
+          - show_name: true
+            show_icon: true
+            type: button
+            tap_action:
+              action: toggle
+            entity: light.family_room_lights
+            show_state: false
+            icon_height: 27px
+    theme: Metro Blue
+    sections: []
+    type: custom:grid-layout
