@@ -2,7 +2,7 @@
 
 A family dashboard configuration for Home Assistant featuring a screensaver mode, person tracking, and integrated calendar views. Calendar events are assigned a color which coordinates with a person or all persons. The default view is scrollable and shown by the week. There is also a traditional monthly view where a day can be selected and all events are listed.
 
-![Family Calendar Planner](family-calendar-planner-v0-s3qe01lidh2e1.png)
+![Family Calendar Planner](family-calendar-planner.png)
 
 ## Hardware
 I run this on a Raspberry Pi 5 which is connected to a touch screen. I use [this 23.8" touchscreen display](https://www.amazon.com/dp/B088R62J92).
