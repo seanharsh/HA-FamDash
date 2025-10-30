@@ -19,8 +19,7 @@ wallpanel:
   show_image_info: true
   fetch_address_data: true
   image_info_template: >-
-    ${address.town|address.city|address.municipality!prefix=!suffix=,
-    }${address.state}<br />${DateTimeOriginal!options=year:numeric,month:long}
+    ${address.town|address.city|address.municipality|''!prefix=!suffix=, }${address.state|''!suffix=<br />}${DateTimeOriginal|CreateDate|FileModifyDate|'Photo'!options=year:numeric,month:long,day:numeric}
   image_animation_ken_burns: true
   screensaver_entity: input_boolean.wallpanel_screensaver
   info_move_pattern: corners
@@ -309,6 +308,10 @@ views:
                   calendars:
                     - entity: calendar.family
                       color: '#8E24AA'
+                    - entity: calendar.paprika_all_meals
+                      color: '#1ABC9C'
+                    - entity: calendar.delawareoh_refuse_home_address
+                      color: '#4A4A4A'
                     - entity: calendar.holidays_in_united_states
                       color: '#0B8043'
                     - entity: calendar.favorite_football_team
@@ -364,7 +367,7 @@ views:
                       .text {
                         font-weight: 400 !important;
                         font-size: 19x !important;
-                      }          
+                      }
                       .time {
                         color: white !important;
                         font-weight: 500 !important;
@@ -373,6 +376,54 @@ views:
                       .title {
                         color: white;
                         font-weight: 800 !important;
+                      }
+                      .event[style*="#FF6B35"] .title::before {
+                        content: "";
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 5px;
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M11 9H9V2H7V9H5V2H3V9C3 11.12 4.66 12.84 6.75 12.97V22H9.25V12.97C11.34 12.84 13 11.12 13 9V2H11V9M16 6V14H18.5V22H21V2C18.24 2 16 4.24 16 6Z'/%3E%3C/svg%3E");
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        vertical-align: middle;
+                      }
+                      .event[style*="#4A4A4A"] .title::before {
+                        content: "";
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 5px;
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9 3V4H4V6H5V19C5 20.1 5.9 21 7 21H17C18.1 21 19 20.1 19 19V6H20V4H15V3H9M7 6H17V19H7V6M9 8V17H11V8H9M13 8V17H15V8H13Z'/%3E%3C/svg%3E");
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        vertical-align: middle;
+                      }
+                      .event[style*="#ffcc00"] .title::before {
+                        content: "";
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 5px;
+                        background-image: url('https://a.espncdn.com/combiner/i?img=/i/teamlogos/nhl/500/pit.png');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        vertical-align: middle;
+                      }
+                      .event[style*="#a3a3a3"] .title::before {
+                        content: "";
+                        display: inline-block;
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 5px;
+                        background-image: url('https://a.espncdn.com/i/teamlogos/ncaa/500/194.png');
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        background-position: center;
+                        vertical-align: middle;
                       }
             attributes:
               label: Weekly
@@ -383,6 +434,12 @@ views:
                 - entity: calendar.family
                   name: Family
                   color: '#8E24AA'
+                - entity: calendar.paprika_all_meals
+                  name: Breakfast
+                  color: '#FF6B35'
+                - entity: calendar.delawareoh_refuse_home_address
+                  name: Delaware Refuse
+                  color: '#4A4A4A'
                 - entity: calendar.person2
                   name: Person2
                   color: '#1badf8'
@@ -398,6 +455,12 @@ views:
                 - entity: calendar.favorite_hockey_team
                   name: Pittsburgh penguins
                   color: '#ffcc00'
+                - entity: calendar.paprika
+                  name: Paprika
+                  color: '#1ABC9C'
+                - entity: calendar.delawareoh_refuse
+                  name: Delaware Refuse
+                  color: '#4A4A4A'
                 - entity: calendar.favorite_football_team
                   name: Ohio state buckeyes football
                   color: '#a3a3a3'
